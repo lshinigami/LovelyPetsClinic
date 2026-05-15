@@ -1,0 +1,55 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: lovelypets-db
+    environment:
+      POSTGRES_DB: lovelypets
+      POSTGRES_USER: ${DB_USER:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASS:-secret}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-postgres} -d lovelypets"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  mobile-api:
+    build:
+      context: .
+      dockerfile: mobile-api/Dockerfile
+    container_name: lovelypets-mobile-api
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/lovelypets
+      SPRING_DATASOURCE_USERNAME: ${DB_USER:-postgres}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASS:-secret}
+      SPRING_FLYWAY_ENABLED: "true"
+    depends_on:
+      postgres:
+        condition: service_healthy   # ждёт старта БД
+
+  crm:
+    build:
+      context: .
+      dockerfile: crm/Dockerfile
+    container_name: lovelypets-crm
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/lovelypets
+      SPRING_DATASOURCE_USERNAME: ${DB_USER:-postgres}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASS:-secret}
+      SPRING_FLYWAY_ENABLED: "false"   # миграции только из mobile-api
+      SERVER_PORT: "8081"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      mobile-api:
+        condition: service_started     # CRM стартует после mobile-api
+
+volumes:
+  postgres_data:
