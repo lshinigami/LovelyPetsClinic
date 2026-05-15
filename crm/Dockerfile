@@ -11,8 +11,6 @@ COPY core/pom.xml core/
 COPY mobile-api/pom.xml mobile-api/
 COPY crm/pom.xml crm/
 
-RUN mvn dependency:go-offline -pl crm -am -q
-
 COPY domain/src domain/src
 COPY core/src core/src
 COPY crm/src crm/src

@@ -87,9 +87,9 @@
                 <artifactId>vaadin-maven-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>build-frontend</id>
+                        <id>prepare-frontend</id>
                         <goals>
-                            <goal>build-frontend</goal>
+                            <goal>prepare-frontend</goal>
                         </goals>
                     </execution>
                 </executions>
