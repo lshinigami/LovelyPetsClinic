@@ -13,7 +13,7 @@
         <module>domain</module>
         <module>core</module>
         <module>mobile-api</module>
-
+        <module>crm</module>
     </modules>
 
     <properties>
