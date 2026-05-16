@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Table(name = "Medicines")
+@Table(name = "medicines")
 @Getter
 @Setter
 @NoArgsConstructor

@@ -8,7 +8,7 @@ import lombok.experimental.SuperBuilder;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "Staff")
+@Table(name = "staff")
 @Inheritance(strategy = InheritanceType.JOINED)
 @Getter
 @Setter

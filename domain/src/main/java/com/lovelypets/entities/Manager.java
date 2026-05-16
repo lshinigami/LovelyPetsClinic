@@ -7,7 +7,7 @@ import lombok.experimental.SuperBuilder;
 import java.util.List;
 
 @Entity
-@Table(name = "Managers")
+@Table(name = "managers")
 @PrimaryKeyJoinColumn(name = "staff_id")
 @Getter
 @Setter

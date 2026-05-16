@@ -7,7 +7,7 @@ import lombok.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "Files_Metadata")
+@Table(name = "files_metadata")
 @Getter
 @Setter
 @NoArgsConstructor
