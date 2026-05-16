@@ -1,6 +1,6 @@
 package com.lovelypets.entities;
 
-import com.lovelypets.enums.Gender;
+import com.lovelypets.enums.PetGender;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -44,7 +44,7 @@ public class Pet {
     @Enumerated(EnumType.STRING)
     @Column(name = "gender")
     @Builder.Default
-    private Gender gender = Gender.unknown;
+    private PetGender petGender = PetGender.UNKNOWN;
 
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;

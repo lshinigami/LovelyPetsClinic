@@ -45,7 +45,7 @@ public class Appointment {
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
     @Builder.Default
-    private AppointmentStatus status = AppointmentStatus.scheduled;
+    private AppointmentStatus status = AppointmentStatus.SCHEDULED;
 
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
