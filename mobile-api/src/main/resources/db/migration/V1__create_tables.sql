@@ -3,14 +3,6 @@
 -- ============================================================
 
 -- -------------------------------------------------------
---  ENUM TYPES
--- -------------------------------------------------------
-CREATE TYPE gender_type AS ENUM ('MALE', 'FEMALE', 'UNKNOWN');
-CREATE TYPE staff_role AS ENUM ('VETERINARIAN', 'MANAGER');
-CREATE TYPE appointment_status AS ENUM ('SCHEDULED', 'COMPLETED', 'CANCELLED');
-CREATE TYPE entity_type AS ENUM ('PET_PASSPORT', 'PRESCRIPTION');
-
--- -------------------------------------------------------
 -- 1. CLIENTS
 -- -------------------------------------------------------
 CREATE TABLE clients
@@ -33,7 +25,7 @@ CREATE TABLE files_metadata
     extension       VARCHAR(50),
     file_size_bytes BIGINT,
     storage_path    VARCHAR(500) NOT NULL,
-    entity_type     entity_type  NOT NULL,
+    entity_type     VARCHAR(50),  NOT NULL,
     uploaded_at     TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -49,7 +41,7 @@ CREATE TABLE pets
     species     VARCHAR(50)  NOT NULL,
     breed       VARCHAR(100),
     birth_date  DATE,
-    gender      gender_type DEFAULT 'UNKNOWN',
+    gender      VARCHAR(50), DEFAULT 'UNKNOWN',
     created_at  TIMESTAMP   DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -63,7 +55,7 @@ CREATE TABLE staff
     last_name  VARCHAR(255)        NOT NULL,
     email      VARCHAR(255) UNIQUE NOT NULL,
     phone      VARCHAR(255),
-    role       staff_role          NOT NULL,
+    role       VARCHAR(50),          NOT NULL,
     hire_date  DATE,
     is_active  BOOLEAN DEFAULT TRUE
 );
@@ -97,7 +89,7 @@ CREATE TABLE appointments
     manager_id       BIGINT REFERENCES managers (staff_id),
     appointment_date TIMESTAMP NOT NULL,
     reason           VARCHAR(255),
-    status           appointment_status DEFAULT 'SCHEDULED',
+    status           VARCHAR(50), DEFAULT 'SCHEDULED',
     created_at       TIMESTAMP          DEFAULT CURRENT_TIMESTAMP
 );
 
