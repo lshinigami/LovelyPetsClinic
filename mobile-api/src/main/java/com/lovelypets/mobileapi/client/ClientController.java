@@ -1,6 +1,6 @@
 package com.lovelypets.mobileapi.client;
 
-import com.lovelypets.client.ClientService;
+import com.lovelypets.client.service.ClientService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

@@ -25,7 +25,7 @@ CREATE TABLE files_metadata
     extension       VARCHAR(50),
     file_size_bytes BIGINT,
     storage_path    VARCHAR(500) NOT NULL,
-    entity_type     VARCHAR(50),  NOT NULL,
+    entity_type     VARCHAR(50)  NOT NULL,
     uploaded_at     TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -41,7 +41,7 @@ CREATE TABLE pets
     species     VARCHAR(50)  NOT NULL,
     breed       VARCHAR(100),
     birth_date  DATE,
-    gender      VARCHAR(50), DEFAULT 'UNKNOWN',
+    gender      VARCHAR(50) DEFAULT 'UNKNOWN',
     created_at  TIMESTAMP   DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -55,7 +55,7 @@ CREATE TABLE staff
     last_name  VARCHAR(255)        NOT NULL,
     email      VARCHAR(255) UNIQUE NOT NULL,
     phone      VARCHAR(255),
-    role       VARCHAR(50),          NOT NULL,
+    role       VARCHAR(50)         NOT NULL,
     hire_date  DATE,
     is_active  BOOLEAN DEFAULT TRUE
 );
@@ -89,8 +89,8 @@ CREATE TABLE appointments
     manager_id       BIGINT REFERENCES managers (staff_id),
     appointment_date TIMESTAMP NOT NULL,
     reason           VARCHAR(255),
-    status           VARCHAR(50), DEFAULT 'SCHEDULED',
-    created_at       TIMESTAMP          DEFAULT CURRENT_TIMESTAMP
+    status           VARCHAR(50) DEFAULT 'SCHEDULED',
+    created_at       TIMESTAMP   DEFAULT CURRENT_TIMESTAMP
 );
 
 -- -------------------------------------------------------

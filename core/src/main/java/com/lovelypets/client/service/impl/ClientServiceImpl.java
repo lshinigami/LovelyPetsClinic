@@ -1,7 +1,7 @@
-package com.lovelypets.client.impl;
+package com.lovelypets.client.service.impl;
 
-import com.lovelypets.client.ClientRepository;
-import com.lovelypets.client.ClientService;
+import com.lovelypets.client.repository.ClientRepository;
+import com.lovelypets.client.service.ClientService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

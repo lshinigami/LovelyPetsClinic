@@ -1,4 +1,4 @@
-package com.lovelypets.client;
+package com.lovelypets.client.repository;
 
 import com.lovelypets.entities.Client;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -15,3 +15,25 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: false
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring.json.add.type.headers: false
+
+jwt:
+  # Минимум 256 бит (32 символа) для HMAC-SHA256
+  secret: ${JWT_SECRET:change-me-in-production-use-env-var-please!!}
+  access-expiration-ms: 900000      # 15 минут
+  refresh-expiration-ms: 604800000  # 7 дней
+
+auth:
+  otp:
+    expiration-minutes: 10
+
+kafka:
+  topics:
+    otp-requested: otp-requested
