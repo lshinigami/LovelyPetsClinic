@@ -1,4 +1,4 @@
-package com.lovelypets.mobileapi.config;
+package com.lovelypets.crm.config;
 
 import com.lovelypets.auth.service.impl.JwtAuthFilter;
 import lombok.RequiredArgsConstructor;
@@ -39,8 +39,6 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         // Auth endpoints — публичные
                         .requestMatchers(
-                                "/api/v1/auth/register",
-                                "/api/v1/auth/verify-otp",
                                 "/api/v1/auth/login",
                                 "/api/v1/auth/refresh"
                         ).permitAll()

@@ -1,4 +1,4 @@
-package com.lovelypets.mobileapi.auth;
+package com.lovelypets.mobileapi.auth.controller;
 
 import com.lovelypets.auth.TokenPair;
 import com.lovelypets.auth.service.AuthService;
@@ -31,7 +31,7 @@ import org.springframework.web.bind.annotation.*;
 public class AuthController {
 
     private final RegistrationService registrationService;
-    private final AuthService         authService;
+    private final AuthService authService;
 
     // ─────────────────── REGISTRATION ───────────────────
 

@@ -1,8 +1,8 @@
-package com.lovelypets.mobileapi.security;
+package com.lovelypets.auth.service.impl;
+
 
 import com.lovelypets.auth.repository.TokenEntryRepository;
 import com.lovelypets.auth.service.JwtService;
-import com.lovelypets.auth.service.impl.JwtServiceImpl;
 import com.lovelypets.entities.TokenEntry;
 import com.lovelypets.enums.TokenType;
 import jakarta.servlet.FilterChain;

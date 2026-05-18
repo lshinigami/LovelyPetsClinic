@@ -107,26 +107,26 @@ services:
       kafka:
         condition: service_healthy
 
-#  crm:
-#    build:
-#      context: .
-#      dockerfile: crm/Dockerfile
-#    container_name: lovelypets-crm
-#    networks:
-#      - demo-network
-#    ports:
-#      - "8081:8081"
-#    environment:
-#      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/lovelypets
-#      SPRING_DATASOURCE_USERNAME: postgres
-#      SPRING_DATASOURCE_PASSWORD: secret
-#      SPRING_FLYWAY_ENABLED: "false"
-#      SERVER_PORT: "8081"
-#    depends_on:
-#      postgres:
-#        condition: service_healthy
-#      mobile-api:
-#        condition: service_started
+  crm:
+    build:
+      context: .
+      dockerfile: crm/Dockerfile
+    container_name: lovelypets-crm
+    networks:
+      - demo-network
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/lovelypets
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: secret
+      SPRING_FLYWAY_ENABLED: "false"
+      SERVER_PORT: "8081"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      mobile-api:
+        condition: service_started
 
 networks:
   demo-network:

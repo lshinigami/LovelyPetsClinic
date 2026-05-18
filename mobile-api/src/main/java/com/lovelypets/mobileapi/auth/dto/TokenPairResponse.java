@@ -5,7 +5,7 @@ import com.lovelypets.auth.TokenPair;
 import java.time.LocalDateTime;
 
 /**
- * DTO ответа с парой токенов. Не возвращает внутренние поля типа userId.
+ * DTO ответа с парой токенов
  */
 public record TokenPairResponse(
         String accessToken,
