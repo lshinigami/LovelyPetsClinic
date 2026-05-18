@@ -43,7 +43,7 @@ public class AuthController {
     @Operation(summary = "Initiate client registration (Step 1)")
     public ResponseEntity<Void> register(@Valid @RequestBody RegisterRequest request) {
         registrationService.initiateRegistration(request.email(), request.password());
-        return ResponseEntity.status(HttpStatus.ACCEPTED).build();
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     /**
@@ -54,7 +54,7 @@ public class AuthController {
     @Operation(summary = "Verify OTP code (Step 2 of registration)")
     public ResponseEntity<Void> verifyOtp(@Valid @RequestBody VerifyOtpRequest request) {
         registrationService.verifyOtp(request.email(), request.otp());
-        return ResponseEntity.ok().build();
+        return ResponseEntity.status(HttpStatus.ACCEPTED).build();
     }
 
     // ─────────────────── LOGIN ───────────────────
